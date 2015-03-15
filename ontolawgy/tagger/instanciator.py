@@ -90,9 +90,9 @@ def instanciator(arg_main, arg_text_name, list_of_classes, class_manifestations,
 #	file_text = file_text + "</rdf:RDF>"
 #	return file_text
 
-def prepare_class_list(ontol_name):  #ontol_name é o nome do arquivo da ontologia
+def prepare_class_list(ontology_name):  #ontol_name é o nome do arquivo da ontologia
     ontol = rdflib.Graph()
-    ontol.parse(ontol_name)
+    ontol.parse(ontology_name)
     tipo = rdflib.RDF.type
     classe = rdflib.OWL.Class
     l = []
@@ -102,9 +102,9 @@ def prepare_class_list(ontol_name):  #ontol_name é o nome do arquivo da ontolog
     return l
 
 
-def prepare_class_manifestations(ontol_name, class_list):
+def prepare_class_manifestations(ontology_name, class_list):
     ontol = rdflib.Graph()
-    ontol.parse(ontol_name)
+    ontol.parse(ontology_name)
     tipo = rdflib.RDF.type
     classe = rdflib.OWL.Class
     class_manisf = {}

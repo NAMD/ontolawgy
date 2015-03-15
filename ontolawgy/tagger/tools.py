@@ -1,12 +1,15 @@
 import rdflib
 import networkx as nx
+import os
 
 
-def load_ontology(fname="../ontology/ontologia-juridica-v0-2-0.owl"):
+def load_ontology(fname=None):
     """
 
     :rtype : rdflib Graph
     """
+    if not fname:
+        fname = os.path.split(__file__)[0] + "/../ontology/ontologia-juridica-v0-2-0.owl"
     ontology = rdflib.Graph()
     ontology.parse(fname)
     return ontology
@@ -22,7 +25,7 @@ def in_namespace(namespace, node):
         return False
 
 
-def predicate_graph(predicate, ontology, remove_namespace=True, no_BNodes=False):
+def build_predicate_graph(predicate, ontology, remove_namespace=True, no_BNodes=False):
     graph = nx.DiGraph()
     for tuple in ontology:
         if tuple[1] == predicate:

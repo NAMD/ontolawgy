@@ -1,6 +1,9 @@
 import unittest
-from tagger import tools
+
 import rdflib
+
+from ontolawgy.tagger import tools
+
 
 __author__ = 'fccoelho'
 
